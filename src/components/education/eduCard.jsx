@@ -1,17 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getEducations } from '../../redux/educations/educationSlice';
+import { useNavigate } from 'react-router-dom';
 
 const EduCard = () => {
   const dispatch = useDispatch();
   const { educations } = useSelector((state) => state.educations);
-
-  const [filteredEducations, setFilteredEducations] = useState([]);
-  const [filterTypes, setFilterTypes] = useState([]); 
+  const { user } = useSelector((state) => state.auth); // Redux durumundan user bilgisini al
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getEducations());
   }, [dispatch]);
+
+  useEffect(() => {
+    if (!user) {
+      navigate('/');
+    }
+  }, [user, navigate]);
+
+  const [filteredEducations, setFilteredEducations] = useState([]);
+  const [filterTypes, setFilterTypes] = useState([]); 
 
   useEffect(() => {
     if (educations && educations.data) {
@@ -26,7 +35,6 @@ const EduCard = () => {
     }
   }, [filterTypes, educations]);
   
-
   const handleFilterToggle = (type) => {
     if (filterTypes.includes(type)) {
       setFilterTypes(filterTypes.filter((filterType) => filterType !== type));
@@ -64,7 +72,7 @@ const EduCard = () => {
             </div>
           ))
         ) : (
-          <p>Bu içerikte veri bulunmamaktır</p>
+          <p>Bu içerikte veri bulunmamaktadır</p>
         )}
       </div>
     </div>

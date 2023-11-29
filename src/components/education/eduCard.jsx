@@ -61,7 +61,7 @@ const EduCard = () => {
             </div>
           ))
         ) : (
-          <p>Loading...</p>
+          <p>Bu içerikte veri bulunmamakta</p>
         )}
       </div>
     </div>

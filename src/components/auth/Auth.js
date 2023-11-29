@@ -7,7 +7,7 @@ const Auth = () => {
   return (
     <div>
      <LoginForm />,
-    <RegisterForm />
+     <RegisterForm />
    </div>   
   );
 };

@@ -1,13 +1,29 @@
+// LoginForm.js
+
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { loginUser, loginSuccess  } from '../../redux/auth/authSlice';
+import { loginUser } from '../../redux/auth/authSlice';
+import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [loginData, setLoginData] = useState({ identifier: '', password: '' });
 
-  const handleLogin = () => {
-    dispatch(loginUser(loginData));
+  const handleLogin = async () => {
+    try {
+      const response = await dispatch(loginUser(loginData));
+
+      if (response.payload.user) {
+        console.log("Redirecting to /dashboard");
+        navigate('/education');
+      } else {
+        console.log("Login unsuccessful");
+      }
+    } catch (error) {
+      console.error("Login error:", error);
+    }
   };
 
   return (

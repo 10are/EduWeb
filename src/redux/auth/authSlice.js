@@ -28,6 +28,7 @@ const authSlice = createSlice({
   name: 'auth',
   initialState: { user: null, status: 'idle', error: null },
   reducers: {
+    
   },
   extraReducers: (builder) => {
     builder

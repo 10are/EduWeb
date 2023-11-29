@@ -14,15 +14,18 @@ const EduCard = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    if (filterTypes.length > 0) {
-      const filteredData = educations.data.filter((education) =>
-        filterTypes.includes(education.attributes.type)
-      );
-      setFilteredEducations(filteredData);
-    } else {
-      setFilteredEducations(educations.data);
+    if (educations && educations.data) {
+      if (filterTypes.length > 0) {
+        const filteredData = educations.data.filter((education) =>
+          filterTypes.includes(education.attributes.type)
+        );
+        setFilteredEducations(filteredData);
+      } else {
+        setFilteredEducations(educations.data);
+      }
     }
   }, [filterTypes, educations]);
+  
 
   const handleFilterToggle = (type) => {
     if (filterTypes.includes(type)) {
@@ -61,7 +64,7 @@ const EduCard = () => {
             </div>
           ))
         ) : (
-          <p>Bu içerikte veri bulunmamakta</p>
+          <p>Bu içerikte veri bulunmamaktır</p>
         )}
       </div>
     </div>

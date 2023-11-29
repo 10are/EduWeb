@@ -3,7 +3,7 @@ import { store } from './redux/store'
 import { Provider } from 'react-redux'
 import Landing from './pages/landing/Landing';
 import Dashboard from './pages/dashboard/Dashboard';
-import PrivateRoute from './PrivateRoute';
+
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Landing/>} /> 
-        <Route path="/edu" element={<Dashboard/>} />
+        <Route path="/education" element={<Dashboard/>} />
       </Routes>        
     </BrowserRouter>
     </Provider>

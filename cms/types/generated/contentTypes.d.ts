@@ -367,7 +367,7 @@ export interface ApiEducationEducation extends Schema.CollectionType {
   info: {
     singularName: 'education';
     pluralName: 'educations';
-    displayName: 'Education';
+    displayName: 'education';
     description: '';
   };
   options: {
@@ -622,6 +622,7 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
   options: {
     draftAndPublish: false;
+    timestamps: true;
   };
   attributes: {
     username: Attribute.String &
@@ -650,7 +651,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'manyToOne',
       'plugin::users-permissions.role'
     >;
-    Education: Attribute.Enumeration<['student', 'graduate', 'working']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

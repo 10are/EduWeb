@@ -4,7 +4,8 @@
   "info": {
     "singularName": "education",
     "pluralName": "educations",
-    "displayName": "Education"
+    "displayName": "Education",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -14,18 +15,8 @@
     "name": {
       "type": "string"
     },
-    "image": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": true
-    },
     "detail": {
-      "type": "blocks"
+      "type": "richtext"
     },
     "type": {
       "type": "enumeration",
@@ -36,8 +27,7 @@
         "teacher",
         "nurse",
         "dentist"
-      ],
-      "default": "engineer"
+      ]
     }
   }
 }

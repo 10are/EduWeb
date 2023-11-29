@@ -1,11 +1,11 @@
 import React from 'react'
-import Auth from '../../componenets/auth/Auth'
+import EduCard from '../../componenets/education/eduCard'
+import { Route, Switch, useHistory } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 
 function Landing() {
   return (
-    <div>
-       sadasdasd
-    </div>
+    <EduCard/>
   )
 }
 

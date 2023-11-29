@@ -368,18 +368,17 @@ export interface ApiEducationEducation extends Schema.CollectionType {
     singularName: 'education';
     pluralName: 'educations';
     displayName: 'Education';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     name: Attribute.String;
-    image: Attribute.Media;
-    detail: Attribute.Blocks;
+    detail: Attribute.RichText;
     type: Attribute.Enumeration<
       ['doctor', 'engineer', 'lawyer', 'teacher', 'nurse', 'dentist']
-    > &
-      Attribute.DefaultTo<'engineer'>;
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

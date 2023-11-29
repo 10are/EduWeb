@@ -1,8 +1,11 @@
 import React from 'react'
+import Auth from '../../componenets/auth/Auth'
 
 function Landing() {
   return (
-    <div>Landing</div>
+    <div>
+       sadasdasd
+    </div>
   )
 }
 

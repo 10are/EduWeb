@@ -13,11 +13,11 @@ const EduCard = () => {
     dispatch(getEducations());
   }, [dispatch]);
 
-  useEffect(() => {
-    if (!user) {
-      navigate('/');
-    }
-  }, [user, navigate]);
+  // useEffect(() => {
+  //   if (!user) {
+  //     navigate('/');
+  //   }
+  // }, [user, navigate]);
 
   const [filteredEducations, setFilteredEducations] = useState([]);
   const [filterTypes, setFilterTypes] = useState([]); 

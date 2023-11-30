@@ -25,7 +25,6 @@ const Navbar = () => {
             Faq
           </Link>
         </div>
-        {/* Auth Status */}
         <div className="text-white flex items-center space-x-2">
           {user ? (
             <>

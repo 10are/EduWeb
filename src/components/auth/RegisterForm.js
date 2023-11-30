@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { registerUser } from '../../redux/auth/authSlice';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const registerStatus = useSelector((state) => state.auth.status);
   const [userData, setUserData] = useState({ username: '', email: '', password: '' });
-
-  const handleRegister = () => {
-    dispatch(registerUser(userData));
+  const handleRegister = async () => {
+    await dispatch(registerUser(userData));
+    if (registerStatus === 'succeeded') {
+      navigate('/login');
+    }
   };
-
   return (
     <div className="flex items-center pb-72 justify-center min-h-screen bg-gradient-to-r from-green-500 to-teal-500">
       <div className="max-w-md w-full bg-white p-8 rounded-md shadow-md">
@@ -23,7 +26,6 @@ const RegisterForm = () => {
             value={userData.username}
             onChange={(e) => setUserData({ ...userData, username: e.target.value })}
           />
-          <br />
           <label className="block mb-4 text-lg text-gray-700">Email:</label>
           <input
             className="w-full p-4 border rounded-md mb-4 focus:outline-none focus:ring focus:border-green-300"
@@ -31,7 +33,6 @@ const RegisterForm = () => {
             value={userData.email}
             onChange={(e) => setUserData({ ...userData, email: e.target.value })}
           />
-          <br />
           <label className="block mb-4 text-lg text-gray-700">Password:</label>
           <input
             className="w-full p-4 border rounded-md mb-6 focus:outline-none focus:ring focus:border-green-300"

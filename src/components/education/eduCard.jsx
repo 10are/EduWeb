@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getEducations } from '../../redux/educations/educationSlice';
 import { useNavigate } from 'react-router-dom';
-import { AiOutlineQuestionCircle } from 'react-icons/ai';
 
 const EduCard = () => {
   const dispatch = useDispatch();
@@ -69,14 +68,18 @@ const EduCard = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {filteredEducations.length > 0 ? (
           filteredEducations.map((education) => (
-            <div key={education.id} className="bg-white p-6 rounded-lg shadow-md">
+            <div key={education.id} className="bg-white p-6 rounded-lg shadow-md relative">
               <h3 className="text-xl font-bold mb-2">{education.attributes.name}</h3>
               <p className="text-gray-700 mb-4">{education.attributes.detail}</p>
-              <p className="text-blue-500">Type: {education.attributes.type}</p>
+
+  
+              <div className="flex justify-end  items-center absolute bottom-0 left-0 right-0 p-4 bg-[#DFD9D2]">
+                <p className="text-xl font-bold  text-white">LOCKED</p>
+              </div>
             </div>
           ))
         ) : (
-          <p>Bu içerikte veri bulunmamaktadır</p>
+          <p >Bu içerikte veri bulunmamaktadır</p>
         )}
       </div>
     </div>

@@ -377,7 +377,7 @@ export interface ApiEducationEducation extends Schema.CollectionType {
     name: Attribute.String;
     detail: Attribute.RichText;
     type: Attribute.Enumeration<
-      ['doctor', 'engineer', 'lawyer', 'teacher', 'nurse', 'dentist']
+      ['DOCTOR', 'ENGINEER', 'LAWYER', 'TEACHER', 'NURSE', 'DENTIST']
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

@@ -21,12 +21,12 @@
     "type": {
       "type": "enumeration",
       "enum": [
-        "doctor",
-        "engineer",
-        "lawyer",
-        "teacher",
-        "nurse",
-        "dentist"
+        "DOCTOR",
+        "ENGINEER",
+        "LAWYER",
+        "TEACHER",
+        "NURSE",
+        "DENTIST"
       ]
     }
   }

@@ -48,4 +48,5 @@ Bu proje, kullanıcı girişi ve kaydı işlemleri ile birlikte kurs verilerini 
 
     Backend, [http://localhost:1337](http://localhost:1337) adresinde çalışacaktır.
 
+![education](https://github.com/10are/EduWeb/assets/108812692/0ff0c5de-6432-42cc-bcca-481a6a1e27c0)
 
